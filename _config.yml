@@ -1,0 +1,7 @@
+source:      .
+plugins:     ./_plugins
+layouts:     ./_layouts
+
+markdown:      rdiscount
+
+
