@@ -87,13 +87,31 @@
     <!-- SCRATCH --> 
     <li class="dropdown">					
         <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
-            <i class="icon-th"></i>
+            <i class="icon-ghost"></i>
             <span>Scratch</span>
             <b class="caret"></b>
         </a>	    
     
         <ul class="dropdown-menu">
-            <li><a href="/scratch/lesson1/index.html">Lesson 1: Introduction</a></li>
+            <li class="dropdown-submenu">
+                <a tabindex="-1" href="#">Blue Belt</a>
+                <ul class="dropdown-menu">
+                  <li><a tabindex="-1" href="/scratch/blue/lesson1/index.html">Lesson 1</a></li>
+                </ul>
+            </li>
+            <li class="dropdown-submenu">
+                <a tabindex="-2" href="#">Yellow Belt</a>
+                <ul class="dropdown-menu">
+                  <li><a tabindex="-1" href="/scratch/yellow/lesson1/index.html">Lesson 1</a></li>
+                </ul>
+            </li>
+            <li class="dropdown-submenu">
+                <a tabindex="-3" href="#">Red Belt</a>
+                <ul class="dropdown-menu">
+                  <li><a tabindex="-1" href="/scratch/red/lesson1/index.html">Lesson 1</a></li>
+                </ul>
+            </li>
+            
         </ul> 				
     </li>
     
@@ -144,17 +162,7 @@
 
       <div class="row">
       	
-      	<div class="col-md-12">
-      		
-      		<div class="widget stacked">
-					
-				<div class="widget-header">
-					<i class="icon-th-large"></i>
-					<h3>Markdown cheat sheet</h3>
-				</div> <!-- /widget-header -->
-				
-				<div class="widget-content">
-                    <p>This is intended as a quick reference and showcase. For more complete info, see <a href="http://daringfireball.net/projects/markdown/">John Gruber's original spec</a> and the <a href="http://github.github.com/github-flavored-markdown/">Github-flavored Markdown info page</a>.</p>
+        <p>This is intended as a quick reference and showcase. For more complete info, see <a href="http://daringfireball.net/projects/markdown/">John Gruber's original spec</a> and the <a href="http://github.github.com/github-flavored-markdown/">Github-flavored Markdown info page</a>.</p>
 
 <p>This cheatsheet is specifically <em>Markdown Here's</em> version of Github-flavored Markdown. This differs slightly in styling and syntax from what Github uses, so what you see below might vary a little from what you get in a <em>Markdown Here</em> email, but it should be pretty close.</p>
 
@@ -593,12 +601,7 @@ alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /&gt;&lt;/a&gt;
 [![IMAGE ALT TEXT HERE](http://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](http://www.youtube.com/watch?v=YOUTUBE_VIDEO_ID_HERE)
 </code></p>
 
-            
-				</div> <!-- /widget-content -->
-					
-			</div> <!-- /widget -->					
-			
-	    </div> <!-- /span12 -->     	
+
       </div> <!-- /row -->
     </div> <!-- /container -->
 </div> <!-- /main -->
