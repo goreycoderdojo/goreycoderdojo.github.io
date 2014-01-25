@@ -2,6 +2,11 @@ source:      .
 plugins:     ./_plugins
 layouts:     ./_layouts
 
-markdown:      rdiscount
+pygments:    true
+
+markdown:      maruku
+markdown_ext:  markdown,mkd,mkdn,md
+textile_ext:   textile
+
 
 

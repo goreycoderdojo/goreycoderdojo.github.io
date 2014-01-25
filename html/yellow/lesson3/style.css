@@ -1,0 +1,50 @@
+#container {
+	 width: 980px;
+}
+
+#header {
+	 background-color: #FFA500;
+}
+
+h1 {
+	margin-bottom: 0;
+}
+
+#menu {
+	background-color: #FFD700;
+	height: 300px;
+	width: 200px;
+	float: right;
+}
+
+#content {
+	background-color: #EEEEEE;
+	height: 300px;
+	width: 780px;
+	float: left;
+}
+
+#footer {
+	background-color:#FFA500;
+	clear:both;
+	text-align:center;
+}
+
+ul {
+	padding: 0px;
+}
+
+li {
+	list-style: none;
+	background-color: #EEEEEE;
+	border-bottom: 1px solid #555555;
+	width: 200px;
+}
+
+li.selected {
+	background-color: #999999;
+}
+
+li a:hover {
+	color: #00FF00;
+}
