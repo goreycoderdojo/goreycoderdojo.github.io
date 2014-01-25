@@ -3,7 +3,7 @@
 layout: lesson
 title: Yellow Belt - Lesson 4
 
-form_url: http://lesson.coderdojogorey.com/html/yellow/lesson4/form.php
+form_url: http://www.coderdojogorey.com/form.php
 
 ---
 
@@ -69,7 +69,7 @@ A form can have serveral attributes name, method, and action. There are several 
 
 At a minimum the form needs the action and method attributes. The action tells the form were to send the data when the form is submitted. The method tells the form how to send the data. The method can be POST or GET. For these exercises we'll use POST.
 
-When you enter information on a form and submit it the data to be processed on a server. For these exercises we are going to post to http://lesson.coderdojogorey.com/html/yellow/lesson4/form.php which is a special page that processes the information and displays back the information entered on the form.
+When you enter information on a form and submit it the data to be processed on a server. For these exercises we are going to post to http://www.coderdojogorey.com/form.php which is a special page that processes the information and displays back the information entered on the form.
 
 The next item on the form is a `<label></label>` which describes the name of the field on the form.
 
