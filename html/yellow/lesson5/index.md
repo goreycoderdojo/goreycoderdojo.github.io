@@ -58,9 +58,9 @@ Give it a name that makes sense like "Coder Dojo Server". On the right hand side
 ## Connection Details
 Copy and paste these values in
 
-Hostname --> **ftp.d1041535-8460.cp.blacknight.com**  
-Username --> **f167265.coderdojo**  
-Password --> **coderdojo**
+Hostname --> **www.coderdojogorey.com**  
+Username --> **dojotest**  
+Password --> Ask a mentor for the password
 
 To connect to the server do the following
 
@@ -115,7 +115,7 @@ No you should see the following -->
 
 Now you can go to your your web page and anyone with a web connection can see it too.
 
-<a href="http://www.thesecretpixel.com/coderdojo/john-smith.html">http://www.thesecretpixel.com/coderdojo/<strong>john-smith.html</strong></a>
+<a href="http://www.coderdojogorey.com/~dojotest/john-smith.html">http://www.coderdojogorey.com/~dojotest/<strong>john-smith.html</strong></a>
 
 Just change the name of the file to the name of the file that you uploaded.
 
