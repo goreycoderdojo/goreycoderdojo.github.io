@@ -342,7 +342,7 @@ Type out the code below, you can leave out the comments if you wish, but read th
         </head>
         <body>
 
-            <img class="image" src="../flower.jpg">
+            <img class="image" src="flower.jpg">
 
 
             <p class="height">Height = </p>
