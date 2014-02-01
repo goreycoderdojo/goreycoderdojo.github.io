@@ -1,0 +1,177 @@
+     <!DOCTYPE html>
+    <html>
+        <head>
+            <title>Playing with JQuery</title>
+            
+            <link type="text/css" rel="stylesheet" href="style.css">
+
+        </head>
+        <body>
+            <div class="container">
+
+                <img class="image" src="../flower.jpg">
+
+
+                <p class="height">Height = </p>
+
+                <p class="width">Width = </p>
+
+                <ul>
+                    <li>
+                        <a href="#" class="get-size">Get the Size</a>
+                    </li>
+                    <li>
+                        <a href="#" class="set-size">Resize</a>
+                    </li>
+                </ul>
+
+
+                <form id="resize-me">
+
+                    <p>
+                        <label>Height</label>
+                        <input type="text" name="height">
+                    </p>
+
+                    <p>
+                        <label>Width</label>
+                        <input type="text" name="width">
+                    </p>
+
+                    <p>
+                        <input type="submit" value="Change Size">
+                    </p>
+
+                </form>
+            
+            </div>
+
+            <script src="jquery.js"></script>
+
+            <script>
+                $(document).ready(function(){
+                    
+                    $('.get-size').click(function(event){
+                    
+                        event.preventDefault();
+
+                        console.log('get the image size');
+
+
+                        /*
+                            In javascript there is a fundamental building block called a variable.
+                            Think of this as a container that we can put something into. 
+
+                            In this case we are going to create 2 variables image_height and image_width and store the images height and width into it.
+
+                            We declare variables in javascript by using the following syntax
+
+                            var MY_VARIABLE_NAME = "THE SOMETHING YOU WANT TO STORE IN THE VARIABLE";
+
+                            You can store lots of different types of information in a variable, 
+                            but for now we'll look at numbers and a string (another name for text) 
+
+                            For numbers you declare a variable
+
+                            var my_num = 1;
+
+                            For strings you delcare a variable, notice the " "
+
+                            var my_string = "This is my string";  
+
+                            When declaring a variable it should not start with a number, should not contain spaces, you can use _ to seperate words.
+                            There are also a number of keywords you can't use as variable names.                             
+
+                        */
+
+
+                        // Delcare a variable called image_height and then use .height() method load the image height into it
+                        var image_height = $('.image').height();   
+
+                        // Delcare a variable called image_width and then use the .width() method to load the image width into it
+                        var image_width = $('.image').width(); 
+
+
+                        /*
+                            Print out the height and width to the console, we have to join our string 'Image Height' 
+                            to our variable image_height, in javascript we use the + sign to do this. 
+                        */
+                        console.log('Image Height = ' + image_height);  
+                        console.log('Image Width = ' + image_width);
+
+
+                        /*
+                          We are using a new jquery statement here called .html() , this gets and sets the content of the selected element.
+                          for example $('.my_element').html() will get the content in .my_element
+                          $('.my_element').html('hello') will set the content in .my_element to hello
+
+
+                          We join the string "The height is" to the variable image_height using the + sign again.
+
+                        */
+                        $('.height').html('The height is ' + image_height);
+                        $('.width').html('The width is ' + image_width);
+
+                
+                    });
+
+                    $('.set-size').click(function(event){
+
+                        /*
+                            We are setting the image height and width here. 
+                            We are doing it a slightly different way using a technique called chaining.
+
+                            It could have been written like
+                            $('.image').height('500px');
+                            $('.image').width('300px'):
+
+                            But thats a lot of typing! Chaining allows you to put multiple JQuery statements together. 
+
+                        */
+                        
+                        $('.image').height('500px').width('300px');
+        
+                    });
+
+
+                    /*
+                      We can capture the form submit event like the click event 
+                     */
+                    
+                    $('#resize-me').submit(function(event){
+                        event.preventDefault(); // we don't want the form to submit
+
+                        /*
+                           We are going to get the height and width values in the form you just submitted and save them into a variable
+
+                           Our selector is slightly different here, $('#resize-me input[name=height])
+                           What it means is 'The HTML element width the id of resize-me (the form) has an element called input with an attribute called height'
+                           This is our <input type="text" name="height">. Then we use the JQuery method .val() to get the value of that input box.
+
+                         */
+                        
+                         var new_height = $('#resize-me input[name=height]').val();
+                         var new_width = $('#resize-me input[name=width]').val();
+
+                         console.log('The new height is ' + new_height);
+                         console.log('The new width is ' + new_width);
+
+                         /* 
+                            We set the new image height and width but we have to add a 'px' string to the width and height,
+                            so we join the variable with the string 'px' using the +
+        
+                         */
+                         $('.image').height(new_height + 'px').width(new_width + 'px'); 
+
+                    });
+                                    
+
+                });
+
+            </script>
+
+</body>
+</html>
+
+
+

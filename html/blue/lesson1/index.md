@@ -32,6 +32,7 @@ Let's get started and add JQuery to your webpage. Open your text editor, and typ
 
         </head>
         <body>
+            <a href="http://www.coderdojogorey.com">CoderDojo Website</a>
 
             <script src="jquery.js"></script>
         </body>
@@ -47,352 +48,472 @@ At the top of the Web Inspector click on the Console link. This will show any er
 
 ## Document.ready
 
+JQuery interacts with the webpage and allows you to add, remove, manipulate and edit elements on the page. When your browser loads a webpage it loads the information from top to bottom as outlined in your html file. There's images, css files, the text on the page, and javascript to download, and they all download at different times. If you have a JQuery script and runs as soon as it is downloaded the element yu want to interact with may not be on the page for your script to work on. 
+
+In JQuery we use a JQuery statement known as the ready event.
+
+    $(document).ready(function(){
+ 
+        //your code goes here
+    
+    });
 
 
-
-----------------------------
-
-In lesson 1 we looked at how to put together a webpage and looked at some basic html tags. This week well be looking at Cascading Style Sheets, or CSS for short.
-
-Using CSS allows us to add style to our HTML. There are a number of ways of applying CSS to HTML. But the basic format of css is property:value;
-
-If you don't understand anything or something doesn't work the way you thing it should just shout for help!
-
-## Startup
-
-To start writing html you will need a text editor. Below are links to two:
-
-* [http://www.sublimetext.com](http://www.sublimetext.com/) 
-* [http://notepad-plus-plus.org/](http://notepad-plus-plus.org/)
-
-
-The next thing you need is a web browser. You can use your current web browser. Google Chrome is a good browser for using to check and debug (fix) your HTML code if there are errors in it. [Download Chrome here](http://www.google.com/chrome).
-
-A note on creating folders and html file names. It is best practice not to have spaces in the names of web folders or file names. So you can call your files anything like the following.
-
-
-* MyWebPage.html
-* mywebpage.html
-* my-web-page.html
-
-
-## Applying CSS
-
-On your desktop create a folder called coderdojo. In the coderdojo folder create another folder called lesson2.
-
-When your ready open your text editor and type in the following code
+From the page code above add the ready statement to it, you should have something like this.
 
     <!DOCTYPE html>
     <html>
-    <head> 
-      <title>CSS Page</title>
-      <link type="text/css" rel="stylesheet" href="style.css">
-    </head>
-    <body>
-      <h1>This is a h1 tag</h1>
-       
-      This is a paragraph
-         
-      
-          * List item 1
-          * List item 2
-          * List item 3
-          * List item 4
-      
-        <table>
-          <tr>
-            <td>cell 1</td>
-            <td>cell 2</td>
-          </tr>
-          <tr>
-            <td>cell 3</td>
-            <td>cell 4</td>
-          </tr>
-        </table>
+        <head>
+            <title>Playing with JQuery</title>
+            
+            <link type="text/css" rel="stylesheet" href="style.css">
+
+        </head>
+        <body>
+            <a href="http://www.coderdojogorey.com">CoderDojo Website</a>
+
+            <script src="jquery.js"></script>
+
+            <script>
+                $(document).ready(function(){
+                    alert('The page has fully loaded and JQuery ready statement is being called');
+                });
+    
+            </script>
+
+        </body>
+    </html>
+
+Save the code and open it in your browser.
+
+We add the ready statement and our code below the `<script src="jquery.js"></script>` as we need that file loaded before we can call any JQuery code.
+
+## Selectors
+
+To work with any element on the page you need to select it first. This is where selectors come in. There are many different ways to select elements on a page for the moment we'll look at 2 ways.
+
+* Select a html element 
+* Select a class or id 
+
+In JQuery we use the `$(SELECTOR)` code to select an element. In this next example we are going to select all `<a>` tags on a page and assign an event to it. But for now we are going to ask JQuery to run our code every time someone clicks an `<a>` element on the page.
+
+    <!DOCTYPE html>
+    <html>
+        <head>
+            <title>Playing with JQuery</title>
+            
+            <link type="text/css" rel="stylesheet" href="style.css">
+
+        </head>
+        <body>
+            <a href="http://www.coderdojogorey.com">CoderDojo Website</a>
+
+            <script src="jquery.js"></script>
+
+            <script>
+                $(document).ready(function(){
+                    $("a").click(function(event)){
+                        
+                        alert("We have clicked the link");
+
+                    });
+                
+                });
+    
+            </script>
+
+        </body>
+    </html>
+
+In the example above we could have used any html element on the page e.g. a `<p>` tag or an `<img>` tag. 
+
+The other we'll look at making a selection is using the class or id attribute of an element.
+
+    <!DOCTYPE html>
+    <html>
+        <head>
+            <title>Playing with JQuery</title>
+            
+            <link type="text/css" rel="stylesheet" href="style.css">
+
+        </head>
+        <body>
+            <p>
+                <a class="mylink" href="http://www.coderdojogorey.com">CoderDojo Website</a>
+
+            <p id="myparagraph">
+                Click on this paragraph. It's not a link!
+            </p>
+
+            <script src="jquery.js"></script>
+
+            <script>
+                $(document).ready(function(){
+                    $(".mylink").click(function(event)){
+                        
+                        alert("We have clicked the link");
+
+                    });
+
+                    $('#myparagraph').click(function(event)){
+                        
+                        alert("Hey this is not a link!");
+                    }
+                
+                });
+    
+            </script>
+
+        </body>
+    </html>
+
+
+When you want to select an attribute by class name you use a . `$(".NAME")`
+When you want to select an attribute by id you use a # `$(#NAME)`
+
+
+# JQuery Examples
+
+For the rest of this lesson we'll run through some examples of what JQuery can do. You can then use some of these examples in your own projects, and in later lessons we'll go a bit deeper into JQuery. You can find out more on the [JQuery website](http://learn.jquery.com/about-jquery/) or search for tutorials on Google.
+
+# CSS
+
+With JQuery you can add a class to the selected element, or you can modify the CSS directly. Type in the code below into a new page, save it and then load the page. 
+
+In Javascript we can add comments to our code to leave notes in for ourselves. In the code below there are comments explaining what each JQuery element does. Comments are added with `//` or if you have a block of text you start the block with a `/*` and end it with `*\`.
+
+
+## .addClass() & .removeClass()
+
+In the style.css file add the following:
+
+    .blue-text{
+        color: #428bca;
+    }
+
+    .red-text{
+        color: #d43f3a;
+    }
+
+In the HTML file type the following, you can leave out the comments if you wish.
+
+
+     <!DOCTYPE html>
+    <html>
+        <head>
+            <title>Playing with JQuery</title>
+            
+            <link type="text/css" rel="stylesheet" href="style.css">
+
+        </head>
+        <body>
+
+            <h1>This is my title</h1>
+
+
+            <ul>
+
+                <li>
+                    <a href="#" class="change-blue">Change to blue</a>
+                </li>
+                <li>
+                    <a href="#" class="change-red">Change to red</a>
+                </li>
+            </ul>
+
+
+            <script src="jquery.js"></script>
+
+            <script>
+                $(document).ready(function(){
+
+                    /* 
+                        Assigns the click event to the <a> element with the class change-blue, when it is clicked this piece of code is called.
+                        You can use any other element for example <p class="change-blue"> 
+
+                    */
+
+                    $('.change-blue').click(function(event){  
+                        event.preventDefault(); // as we are using an <a> element the browser will go to the new page if it's specified with the href="" attribute, this prevents that behaviour.
+
+                        console.log('Change to blue text'); // this outputs the text to your web inspector console.
+
+                        $('h1').removeClass(); // if the the class red-text has been added to the h1 tag we want to remove all classes first.
+
+                        $('h1').addClass('blue-text'); // add the blue-text class
+
+                    });
+
+
+                    /*
+                        This is the same code as above but for the '.change-red' class'
+                    */
+                    $('.change-red').click(function(event){
+                
+                        event.preventDefault();
+
+                        console.log('Change to red text');
+
+                        $('h1').removeClass();
+
+                        $('h1').addClass('red-text');
+
+                    });
+
+                    //We'll add more code underneath here.
+
+                });
+    
+            </script>
+
+        </body>
+    </html>
+
+When you load this page it should change the color of the h1 text when you click either of the `<a>` elements. If it doens't work check your web inspector, and the Console tab. 
+
+When it does work, open your web inspector and look at the Elements tab and the H1 tag in that, notice how this changes when you click on the links. Also check the Console tab to see the output of the `console.log()` statement you added. These are useful tools to fix any problems you have with your code not working. 
+
+## .css()
+
+You can manipulate the css directly using the .css() statement.
+
+In the previous code in your `<ul>` class add the following underneath the first two `<li>` statements
+
+    <li>
+        <a href="#" class="bigger-font">Bigger font size</a>
+    </li>
+    <li>
+        <a href="#" class="smaller-font">Smaller font size</a>
+    </li>
+
+Then in your `$(document).ready()` statement underneath the comment `We'll add more code underneath here` add the following
+
+    $('.bigger-font').click(function(event){
+        event.preventDefault();
+
+        console.log('increase the font size');
+
+        $('h1').css('font-size' , '60px'); // we make the font size 30px
+
+    });
+
+    $('.smaller-font').click(function(event){
+        event.preventDefault();
+
+        console.log('decrease the font size');
+
+        $('h1').css('font-size' , '20px'); 
+
+    });
+
+Check the web inspector Console and Elements tabs, notice in the elements tab the font-size is directly added to the h1 tag.
+You can use any css element with in the `.css()` statement.
+
+Try adding 2 more elements using the .css() , one to make the title disappear and one to make it visible. Hint: the css for making something invisible is `display:none` and making it visible is `display:block`
+
+
+# .height() & .width()
+
+Using the `.height()` and `.width()` statements you can get and set the height of an element. In this section we'll look at how this is done using an image. First save the image to your computer.
+
+![Flower](flower.jpg)
+
+
+In your style.css file add the following, this is only for page lay out.
+
+    .container{
+        width: 960px;
+    }
+
+    .image{ 
+        float:right;
+    }
+
+
+Type out the code below, you can leave out the comments if you wish, but read them! They explain what the code is doing, and there are some new things in them we haven't encountered before. 
+
+    <!DOCTYPE html>
+    <html>
+        <head>
+            <title>Playing with JQuery</title>
+            
+            <link type="text/css" rel="stylesheet" href="style.css">
+
+        </head>
+        <body>
+
+            <img class="image" src="../flower.jpg">
+
+
+            <p class="height">Height = </p>
+
+            <p class="width">Width = </p>
+
+            <ul>
+                <li>
+                    <a href="#" class="get-size">Get the Size</a>
+                </li>
+                <li>
+                    <a href="#" class="set-size">Resize</a>
+                </li>
+            </ul>
+
+            <script src="jquery.js"></script>
+
+            <script>
+                $(document).ready(function(){
+                    
+                    $('.get-size').click(function(event){
+                    
+                        event.preventDefault();
+
+                        console.log('get the image size');
+
+
+                        /*
+                            In javascript there is a fundamental building block called a variable.
+                            Think of this as a container that we can put something into. 
+
+                            In this case we are going to create 2 variables image_height and image_width and store the images height and width into it.
+
+                            We declare variables in javascript by using the following syntax
+
+                            var MY_VARIABLE_NAME = "THE SOMETHING YOU WANT TO STORE IN THE VARIABLE";
+
+                            You can store lots of different types of information in a variable, 
+                            but for now we'll look at numbers and a string (another name for text) 
+
+                            For numbers you declare a variable
+
+                            var my_num = 1;
+
+                            For strings you delcare a variable, notice the " "
+
+                            var my_string = "This is my string";  
+
+                            When declaring a variable it should not start with a number, should not contain spaces, you can use _ to seperate words.
+                            There are also a number of keywords you can't use as variable names.                             
+
+                        */
+
+
+                        // Delcare a variable called image_height and then use .height() method load the image height into it
+                        var image_height = $('.image').height();   
+
+                        // Delcare a variable called image_width and then use the .width() method to load the image width into it
+                        var image_width = $('.image').width(); 
+
+
+                        /*
+                            Print out the height and width to the console, we have to join our string 'Image Height' 
+                            to our variable image_height, in javascript we use the + sign to do this. 
+                        */
+                        console.log('Image Height = ' + image_height);  
+                        console.log('Image Width = ' + image_width);
+
+
+                        /*
+                          We are using a new jquery statement here called .html() , this gets and sets the content of the selected element.
+                          for example $('.my_element').html() will get the content in .my_element
+                          $('.my_element').html('hello') will set the content in .my_element to hello
+
+
+                          We join the string "The height is" to the variable image_height using the + sign again.
+
+                        */
+                        $('.height').html('The height is ' + image_height);
+                        $('.width').html('The width is ' + image_width);
+
+                
+                    });
+
+                    $('.set-size').click(function(event){
+
+                        /*
+                            We are setting the image height and width here. 
+                            We are doing it a slightly different way using a technique called chaining.
+
+                            It could have been written like
+                            $('.image').height('500px');
+                            $('.image').width('300px'):
+
+                            But thats a lot of typing! Chaining allows you to put multiple JQuery statements together. 
+
+                        */
+                        
+                        $('.image').height('500px').width('300px');
+        
+                    });
+                                   
+                    //we'll add more code underneath here               
+
+                });
+
+            </script>
+
     </body>
     </html>
 
 
-Save it as index.html in the lesson2 folder you created. Also create a new file called style.css in that same folder.
+We'll now look at a way to add our width and height using a form.
 
+Under the closing `<ul>` add the following html
 
-Now open your browser and press ctrl o (cmd o on a mac) file the index.html file and press open.
+    <form id="resize-me">
 
+        <p>
+            <label>Height</label>
+            <input type="text" name="height">
+        </p>
 
-### Explanation 
+        <p>
+            <label>Width</label>
+            <input type="text" name="width">
+        </p>
 
-In lesson 1 we covered the basic html tags. The new one we added here was in the `<head>` section.
+        <p>
+            <input type="submit" value="Change Size">
+        </p>
+    </form>
 
-    <link type="text/css" rel="stylesheet" href="style.css">
 
-What we've done here is to add the style sheet to the page. As we have not added any styles yet we won't see anything.
+Then in the code where there is a comment //we'll add more code underneath here add the following, you can leave out the comments, but do read them as they explain what's going on.
 
-There are 2 other ways to add styles to a page, we won't cover them just yet. But you can look up some of the website resources at the end of the page to learnmore.
-
-
-## CSS
-
-You apply CSS to selectors. There are 3 different types of selectors. For the moment we'll concentrate on the html tag selectors e.g. body or p
-
-To apply CSS you use property:value.
-
-
-In you style.css file add the following.
-
-    body{
-      font-size:16px;
-    }
-
-    h1{
-      font-size:23px;
-      color:navy;
-    }
-
-    p{
-      font-size:10px;
-      color:red;
-    }
-   
-## Explanation
-   
-We have added 2 styles to 3 selectors. We have changed the font-size for the everything in the body section to 16px, this is applied to the whole document.
-
-We then override the font-size on the h1 and p tags. We also change the color for the fonts with the color style.
-
-When using sizes in CSS, in this case px, there are a number of different units we can use:
-
-
-* em - e.g. font-size: 3em
-* px - e.g. font-size: 14px 
-* pt - e.g. as font-size: 14pt
-* % - e.g. as font-size: 50%
-
-
-Usually when writing pages for a website you would use em or %, but for the purposes of learning css using px as unit of measurement is easier. 
-
-When using colors (note the American way of spelling, it's not the European way, colour).
-
-There are several ways to state a color with CSS. Several ways to state the color red are:
-
-
-* red
-* rgb(255,0,0)  (rgb values between 0 and 255)
-* rgb(100%,0%,0%)  (rgb values percentage)
-* #ff0000 (hexadecimal)
-* #f00 (hexadecimal shorthand)
-
-
-You would usually use rgb or hexadecimal when building a webpage but for now we'll use the following:
-
-aqua, black, blue, fuchsia, gray, green, lime, maroon, navy, olive, orange, purple, red, silver, teal, white, and yellow
-
-
-
-## Try It Yourself
-
-Add the color purple to the body tag, change the color on the li element to lime.
-
-Let's introduce a new property called `background-color`. Set you body background color to green. and your h1 tag background color to white.
-
-By now you should have a very interesting looking page!
-
-
-## Fonts
-
-Before we start into fonts, in your style sheet add the following  `/*  before your text and after all the text add `
-
-These are comments and anything between them are ignored. They are good for leaving little notes to yourself about the blocks of css you write.
-
-So we've commented out the css you've already written.
-
-Now we'll add the following to index.html:
-
-    <a href="http://www.google.ie">www.google.ie</a>
-
-You can add that anywhere between the `<body></body>` tags
-
-    body{
-      font-family: verdana, serif;
-      font-weight:normal;
-    }
-
-    h1{
-      font-style:italic;
-      font-family: "Times New Roman";
-    }
-
-    a {
-      text-decoration:none;
-    }
-
-    a:hover{
-      text-decoration:underline;
-    }
-
-    p{
-      font-weight:bold;
-    }
-
-    table{
-      text-transform:uppercase;
-    }
-      
-    ### Explanation
-
-We have added a lot of font styles here so lets explaing them.
-
-#### font-family
-
-This applies the font to the selector. The font you choose must be installed on the users computer or included with the page for download. The easiest way to style a page is to use a 'Web Safe Font', these are Arial, Verdana, "Times New Roman" (Note the "" if the font name has spaces in it). You can also speficy a number of fonts in the value.
-
-
-    font-family: Arial, Verdana, sans-serif;
-
-This means that it trys to use the first font, and if that is not installed it will use the second font and so on.
-
-
-#### font-size
-
-We've talked about about sizes previously, we can use
-
-
-* em
-* px
-* %
-* pt
-
-
-For now use px.
-
-#### font-weight
-
-There are 2 values for this, either bold or normal. Some fonts allow you to state a weight of the font, e.g. 100,200,300,400 , unless you know if the font supports that way always use bold or normal.
-
-
-#### font-style
-
-This states if the font should be italic or not. The values can be italic or normal.
-
-#### text-decoration
-
-This states whether the text is underlined or not. The values can be:
-
-
-* overline
-* line-through
-* underline
-
-
-#### text-transform
-
-This transforms the text according to the value used.
-
-
-* capitalize
-* uppercase
-* lowercase
-* none
-
-
-#### Text Spacing
-
-
-* letter-spacing - e.g. 12px
-* word-spacing - e.g. 12px
-* line-height - e.g. 12px
-* text-align: left, right, center, justify
-
-
-Try applying some of the above styles to see what they do.
-
-
-This is good time to let you know that if you are confused by all the different values and properties that this is normal. Over time using css you will become more familiar with the different properties you can use. Even seasoned veterns of CSS with years of experience still have to look up what a values you can use for particular property. So use some of the resources outlined that the end of the page.
-
-
-### Try It Yourself
-
-Try changing the font-size of the li and the font-family on the tables. Experiment with getting a nice background-color on the page with nice text.
-
-Try using the tags above.
+    /*
+      We can capture the form submit event like the click event 
+     */
     
-    
-## Margins, Padding and Borders
+    $('#resize-me').submit(function(event){
+        event.preventDefault(); // we don't want the form to submit
 
-These are the 2 most commonly used properties to space and align an element. 
+        /*
+           We are going to get the height and width values in the form you just submitted and save them into a variable
 
-Try the following:
+           Our selector is slightly different here, $('#resize-me input[name=height])
+           What it means is 'The HTML element width the id of resize-me (the form) has an element called input with an attribute called height'
+           This is our <input type="text" name="height">. Then we use the JQuery method .val() to get the value of that input box.
 
-    body{
-      margin:20px;
-    }
+         */
+        
+         var new_height = $('#resize-me input[name=height]').val();
+         var new_width = $('#resize-me input[name=width]').val();
 
-    p{
-      padding-left:40px;
-    }
+         console.log('The new height is ' + new_height);
+         console.log('The new width is ' + new_width);
 
-    h1{
-      border-style: dashed;
-      border-width: 3px;
-      border-color: red;
-    }
+         /* 
+            We set the new image height and width but we have to add a 'px' string to the width and height,
+            so we join the variable with the string 'px' using the +
 
-### Explanation
+         */
+         $('.image').height(new_height + 'px').width(new_width + 'px'); 
 
-Margin can be written the following ways
-
-
-* margin: 10px (10px added to top, left, right, bottom)
-* margin-left: 10px (10px added only to the left margin)
-* margin-right: 10px 
-* margin-top: 10px
-* margin-bottom: 10px
+    });
 
 
-The same can be used for Padding.
-
-For borders we have the following:
 
 
-* border-style: solid, dotted, dashed, double, groove, ridge, inset and outset.
-* border-width: 3px;
-* border-left-width: 10px;
-* border-right-width: 10px;
-* border-color: red;
 
 
-Margins, padding and borders follow the box model:
-
-<div style="overflow: auto; padding: 0 1em 1em 1em;	margin: 0 2em 1em 2em; background-color: #ccf;">
-	Margin box
-	<div style="padding: 0 1em 1em 1em;	background-color: #66f;">
-		Border box
-		<div style="padding: 0 1em 1em 1em;	background-color: #99f;">
-			Padding box
-			<div style="background-color: white;">
-				Element box
-			</div>
-		</div>
-	</div>
-</div>
-
-The bit in the middle (element box) is your img, p, or any other element, outside for that is the padding then the border and then the margin.
-
-### Try It Yourself
-
-Add margins, borders and padding to the elements on your page.
-
-## Resources
-
-
-* [http://www.htmldog.com/guides/cssbeginner/](http://www.htmldog.com/guides/cssbeginner/)
-* [http://www.sitepoint.com/html-css-beginners-guide/](http://www.sitepoint.com/html-css-beginners-guide/)
-* [http://www.w3schools.com/css/](http://www.w3schools.com/css/)
-
-
-## Conclusion
-
-What you have learned today are the basics in using css. By using the resouces above and practicing writting html and css you will become better at it.
-
-The next lesson is about learning a bit more about html and layouts with css.
 
 

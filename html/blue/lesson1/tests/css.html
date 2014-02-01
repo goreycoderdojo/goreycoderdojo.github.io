@@ -1,0 +1,97 @@
+     <!DOCTYPE html>
+    <html>
+        <head>
+            <title>Playing with JQuery</title>
+            
+            <link type="text/css" rel="stylesheet" href="style.css">
+
+        </head>
+        <body>
+
+            <h1>This is my title</h1>
+
+
+            <ul>
+
+                <li>
+                    <a href="#" class="change-blue">Change to blue</a>
+                </li>
+                <li>
+                    <a href="#" class="change-red">Change to red</a>
+                </li>
+                <li>
+                    <a href="#" class="bigger-font">Bigger font size</a>
+                </li>
+                <li>
+                    <a href="#" class="smaller-font">Smaller font size</a>
+                </li>
+                
+            </ul>
+
+
+            <script src="jquery.js"></script>
+
+            <script>
+                $(document).ready(function(){
+
+                    /* 
+                        Assigns the click event to the <a> element with the class change-blue, when it is clicked this piece of code is called.
+                        You can use any other element for example <p class="change-blue"> 
+
+                    */
+
+                    $('.change-blue').click(function(event){  
+                        event.preventDefault(); // as we are using an <a> element the browser will go to the new page if it's specified with the href="" attribute, this prevents that behaviour.
+
+                        console.log('Change to blue text'); // this outputs the text to your web inspector console.
+
+                        $('h1').removeClass('red-text'); // if the the class red-text has been added to the h1 tag we want to remove it first.
+
+                        $('h1').addClass('blue-text'); // add the blue-text class
+
+                    });
+
+
+                    /*
+                        This is the same code as above but for the '.change-red' class'
+                    */
+                    $('.change-red').click(function(event){
+                
+                        event.preventDefault();
+
+                        console.log('Change to red text');
+
+                        $('h1').removeClass('blue-text');
+                        $('h1').addClass('red-text');
+
+                    });
+
+                    //We'll add more code underneath here.
+
+                    $('.bigger-font').click(function(event){
+                        event.preventDefault();
+
+                        console.log('Increase the font size');
+
+                        $('h1').css('font-size' , '60px'); // we make the font size 30px
+
+                    });
+
+                    $('.smaller-font').click(function(event){
+                        event.preventDefault();
+
+                        console.log('Decrease the font size');
+
+                        $('h1').css('font-size' , '20px'); 
+
+                    });
+                                    
+
+        });
+
+    </script>
+
+</body>
+</html>
+
+

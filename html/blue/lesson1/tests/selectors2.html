@@ -1,0 +1,38 @@
+    <!DOCTYPE html>
+    <html>
+        <head>
+            <title>Playing with JQuery</title>
+            
+            <link type="text/css" rel="stylesheet" href="style.css">
+
+        </head>
+        <body>
+            <p>
+                <a class="mylink" href="http://www.coderdojogorey.com">CoderDojo Website</a>
+
+            <p id="myparagraph">
+                Click on this paragraph. It's not a link!
+            </p>
+
+            <script src="jquery.js"></script>
+
+            <script>
+                $(document).ready(function(){
+                    $(".mylink").click(function(event)){
+                        
+                        alert("We have clicked the link");
+
+                    });
+
+                    $('#myparagraph').click(function(event)){
+                        
+                        alert("Hey this is not a link!");
+                    }
+                
+                });
+    
+            </script>
+
+        </body>
+    </html>
+

@@ -1,0 +1,16 @@
+.blue-text{
+    color: #428bca;
+}
+
+.red-text{
+    color: #d43f3a;
+}
+
+
+.container{
+    width: 960px;
+}
+
+.image{ 
+    float:right;
+}
